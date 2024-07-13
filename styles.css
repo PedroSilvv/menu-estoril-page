@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.flipbook-container {
+    position: relative;
+    width: 80%;
+    height: 80%;
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flipbook {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+.page img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+    font-size: 24px;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Estilos Scroll Vertical */
+.scroll-container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+.scroll-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    scroll-snap-align: start;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    body {
+        flex-direction: column;
+    }
+
+    .flipbook-container {
+        display: none;
+    }
+
+    .scroll-container {
+        display: flex;
+    }
+}
